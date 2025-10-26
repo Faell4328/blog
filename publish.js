@@ -11,9 +11,6 @@ rl.question('Caso queria coloca uma mensagem complementar: ', (mensagem) => {
     execSync('git checkout -f main');
     if(mensagem != ""){
         execSync('git merge "draft"');
-        execSync('npm run build');
-        execSync('git add .');
-        execSync(`git commit -m 'publish - ${mensagem}'`);
     }
     else{
         console.log("A mensagem é obrigatória");

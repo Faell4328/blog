@@ -1,0 +1,31 @@
+name: Publicação no blog
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verificar repositório
+        uses: actions/checkout@v3
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v3
+        with:
+          - node-version: '20'
+      
+      - name: Instalar dependências
+        run: npm install
+      
+      - name: Gerar páginas
+        run: npm run build
+
+      - name: Publicando blog
+        uses: peaceiris/actions-gh-pages@v7
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
