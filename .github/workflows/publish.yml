@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,7 +19,7 @@ jobs:
       - name: Preparar Node.js
         uses: actions/setup-node@v3
         with:
-          - node-version: '20'
+          node-version: '20'
       
       - name: Instalar dependências
         run: npm install
@@ -25,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: Publicando blog
-        uses: peaceiris/actions-gh-pages@v7
+        uses: peaceiris/actions-gh-pages@v3
         with: 
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
