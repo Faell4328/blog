@@ -52,16 +52,21 @@ Agora entramos na parte teórica e demonstrativa. A explicação será estrutura
 
 **Explicação:** Essa vulnerabilidade ocorre quando um usuário consegue acessar recursos ou funcionalidades que deveriam estar restritos a ele. Isso pode permitir, por exemplo, acessar contas administrativas, alterar configurações do sistema, visualizar ou modificar dados de outros usuários e até deletar informações críticas.
 
-**Caso grande:** Em 2021 o Facebook anúncio que dados de 553 milhões de usuários foram vazados. Foram vazados: Identidades do Facebook, Nome completo, Data de nascimento, localização e email, até o titio Zuck teve seu número vazado. Os atacantes exploraram uma funcionalidade que ajudava o usuário a encontrar seus amigos no Facebook, que não verificava corretamente se o usuário tinha permissão para acessar aquelas informações.
+**Caso grande:** Em 2021, o Facebook anúncio que dados de 553 milhões de usuários foram vazados. Foram vazados: Identidades do Facebook, Nome completo, Data de nascimento, localização e email, até o titio Zuck teve seu número vazado. Os atacantes exploraram uma funcionalidade que ajudava o usuário a encontrar seus amigos no Facebook, que não verificava corretamente se o usuário tinha permissão para acessar aquelas informações.
 
 <br />
 
 ### Falhas criptográficas
 
-**Explicação:** xxx
-**Caso grande:** xxx
+**Explicação:** Essa vulnerabilidade ocorre quando informações ou serviços não são criptografados corretamente ou utilizam algoritmos fracos. Isso permite que atacantes interceptem, leiam ou modifiquem os dados transmitidos, comprometendo a confidencialidade (garantia de que apenas o destinatário possa acessar a informação) e a integridade (garantia de que os dados não foram alterados) das informações.
+
+Outro ponto importante são as senhas: se elas não forem devidamente protegidas e forem vazadas, isso tem o mesmo efeito que não criptografar os dados, pois permite que terceiros obtenham acesso não autorizado às informações.
+
+**Caso grande:** Em 2025, o Microsoft SharePoint Server apresentou uma falha zero-day (uma vulnerabilidade que não havia sido descoberta pela empresa e ainda não possuía correção, tornando-se um alvo fácil para atacantes). Com essa falha, os invasores podiam ter acesso à chave de criptografia, permitindo ler e modificar o conteúdo armazenado no SharePoint.
 
 <br /><hr />
 
 ## Referências
 - https://owasp.org/Top10/pt-BR/
+- https://www.strongdm.com/what-is/facebook-data-breach
+- https://www.cybersecbrazil.com.br/post/falha-cr%C3%ADtica-zero-day-no-sharepoint-n%C3%A3o-corrigida-permite-invas%C3%A3o-de-mais-de-75-servidores-corporat
