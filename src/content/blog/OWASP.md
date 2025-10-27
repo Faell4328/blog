@@ -2,6 +2,7 @@
 title: 'OWASP Top 10: o guia essencial para desenvolvedores'
 description: '/imagens/owasp.png'
 pubDate: '10/26/2025'
+goal: 'Introduzir os conceitos base sobre cibersegurança em desenvolvimento'
 ---
 
 ## O que é a OWASP?
@@ -42,13 +43,23 @@ O OWASP Top 10 é uma lista que apresenta as 10 vulnerabilidades mais comuns e c
 Agora entramos na parte teórica e demonstrativa. A explicação será estruturada da seguinte forma:
 
 1) Explicarei o que é a vulnerabilidade.
-2) Apresentarei um caso de uma grande empresa que sofreu um impacto significativo e mostrarei como o problema poderia ter sido evitado.
-3) Mostrarei um exemplo mais recente e as medidas que poderiam ter prevenido a falha.
-4) Por fim, explicarei como se proteger de forma geral, incluindo exemplos em código.
+2) Apresentarei um caso de uma grande empresa que sofreu um impacto significativo e o porque ocorreu.
+3) Por fim, explicarei como se proteger de forma geral, incluindo exemplos em código.
 
 <br />
 
-### Injeção de código
+### Falhas criptográficas
+
+**Explicação:** Essa vulnerabilidade ocorre quando um usuário consegue acessar recursos ou funcionalidades que deveriam estar restritos a ele. Isso pode permitir, por exemplo, acessar contas administrativas, alterar configurações do sistema, visualizar ou modificar dados de outros usuários e até deletar informações críticas.
+
+**Caso grande:** Em 2021 o Facebook anúncio que dados de 553 milhões de usuários foram vazados. Foram vazados: Identidades do Facebook, Nome completo, Data de nascimento, localização e email, até o titio Zuck teve seu número vazado. Os atacantes exploraram uma funcionalidade que ajudava o usuário a encontrar seus amigos no Facebook, que não verificava corretamente se o usuário tinha permissão para acessar aquelas informações.
+
+<br />
+
+### Quebra de controle de acesso
+
+**Explicação:** xxx
+**Caso grande:** xxx
 
 <br /><hr />
 
