@@ -48,7 +48,7 @@ Agora entramos na parte teórica e demonstrativa. A explicação será estrutura
 
 <br />
 
-### Falhas criptográficas
+### Quebra de controle de acesso
 
 **Explicação:** Essa vulnerabilidade ocorre quando um usuário consegue acessar recursos ou funcionalidades que deveriam estar restritos a ele. Isso pode permitir, por exemplo, acessar contas administrativas, alterar configurações do sistema, visualizar ou modificar dados de outros usuários e até deletar informações críticas.
 
@@ -56,7 +56,7 @@ Agora entramos na parte teórica e demonstrativa. A explicação será estrutura
 
 <br />
 
-### Quebra de controle de acesso
+### Falhas criptográficas
 
 **Explicação:** xxx
 **Caso grande:** xxx
