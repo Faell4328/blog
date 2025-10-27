@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: Definindo CNAME
-        run: echo "rhafaell.com.br" > .dist/CNAME
+        run: echo "rhafaell.com.br" > dist/CNAME
 
       - name: Publicando blog
         uses: peaceiris/actions-gh-pages@v3
