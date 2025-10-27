@@ -27,6 +27,9 @@ jobs:
       - name: Gerar páginas
         run: npm run build
 
+      - name: Definindo CNAME
+        run: echo "rhafaell.com.br" > CNAME
+
       - name: Publicando blog
         uses: peaceiris/actions-gh-pages@v3
         with: 
