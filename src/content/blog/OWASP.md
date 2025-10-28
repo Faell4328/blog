@@ -64,9 +64,30 @@ Outro ponto importante são as senhas: se elas não forem devidamente protegidas
 
 **Caso grande:** Em 2025, o Microsoft SharePoint Server apresentou uma falha zero-day (uma vulnerabilidade que não havia sido descoberta pela empresa e ainda não possuía correção, tornando-se um alvo fácil para atacantes). Com essa falha, os invasores podiam ter acesso à chave de criptografia, permitindo ler e modificar o conteúdo armazenado no SharePoint.
 
+Um exemplo comum é criptografar senhas ou gerar hashes sem o uso de salt. No primeiro caso, a senha pode ser revertida a partir do texto criptografado. No segundo, embora o hash teoricamente não possa ser revertido, a ausência de salt torna possível descobrir a senha original por meio de ataques de força bruta ou dicionário.
+
+### Injeção
+
+**Explicação:** Essa vulnerabilidade ocorre quando o usuário consegue infiltrar comando em algum campo e enviar para servidor. Podendo alterar completamente o função definida.
+
+**Caso grande**: Em 2025, uma vulnerabilidade no plugin Paid Memberships Pro do WordPress afetou mais de 10.000 sites.
+O plugin é utilizado para gerenciar assinaturas e pagamentos recorrentes. O erro ocorria durante o processamento inadequado das notificações de pagamento do PayPal, o plugin inseria dados fornecidos pelo usuário em consultas SQL sem a devida validação, possibilitando SQL Injection.
+
+## Design inseguro
+
+Nessa caso não se tem uma vulnerabilidade especifica sobre, porque ela engloba tudo.
+
+## Componentes desatualizados e vulneráveis
+
+**Explicação:** Essa vulnerabilidade ocorre quando softwares ou bibliotecas não são devidamente atualizados, deixando o sistema exposto a falhas conhecidas. Explorar essas vulnerabilidades permite que atacantes comprometam a integridade, confidencialidade ou disponibilidade do sistema.
+
+**Caso grande**: Em 2017, a empresa Equifax, especializada em relatórios de crédito, sofreu uma violação de dados que expôs informações confidenciais de mais de 800 milhões de pessoas e 88 milhões de empresas. Entre os dados comprometidos estavam nomes, datas de nascimento, endereços, números de Segurança Social e informações de cartões de crédito. A vulnerabilidade explorada estava no framework Apache Struts, uma correção já havia sido lançada em março de 2017 e a Equifax só foi atacada em maio do mesmo ano.
+
 <br /><hr />
 
 ## Referências
 - https://owasp.org/Top10/pt-BR/
 - https://www.strongdm.com/what-is/facebook-data-breach
 - https://www.cybersecbrazil.com.br/post/falha-cr%C3%ADtica-zero-day-no-sharepoint-n%C3%A3o-corrigida-permite-invas%C3%A3o-de-mais-de-75-servidores-corporat
+- https://www.infosecurity-magazine.com/news/sqli-threat-wordpress-memberships/
+- https://www.breachsense.com/blog/equifax-data-breach/
