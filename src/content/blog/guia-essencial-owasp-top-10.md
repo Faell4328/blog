@@ -51,7 +51,7 @@ Não será abordado aqui como corrigir essas vulnerabilidades, pois cada caso é
 
 **Caso grande:** Em 2021, o Facebook anúncio que dados de 553 milhões de usuários foram vazados. Foram vazados: Identidades do Facebook, Nome completo, Data de nascimento, localização e email, até o titio Zuck teve seu número vazado. Os atacantes exploraram uma funcionalidade que ajudava o usuário a encontrar seus amigos no Facebook, que não verificava corretamente se o usuário tinha permissão para acessar aquelas informações.
 
-Um exemplo que ilustra essa vulnerabilidade ocorreu em 2014, quando um garoto de 5 anos descobriu uma falha no Xbox One. Ao tentar acessar a conta do pai, ele percebeu que, após digitar a senha incorretamente e avançar para a tela de verificação, bastava preencher o campo de senha apenas com espaços para conseguir acessar o perfil normalmente. Não há fontes oficiais detalhando os aspectos técnicos, mas em discussões online sugere-se que o problema provavelmente surgiu porque o framework responsável pelo login transformava a sequência de espaços ('    ') em uma string vazia (''). Em seguida, um bug no sistema interpretava essa string vazia como uma senha válida, permitindo o acesso indevido à conta.
+Outro exemplo ocorreu em 2014, quando um garoto de 5 anos descobriu uma falha no Xbox One. Ao tentar acessar a conta do pai, ele percebeu que, após digitar a senha incorretamente e avançar para a tela de verificação, bastava preencher o campo de senha apenas com espaços para conseguir acessar o perfil normalmente. Não há fontes oficiais detalhando os aspectos técnicos, mas em discussões online sugere-se que o problema provavelmente surgiu porque o framework responsável pelo login transformava a sequência de espaços ('    ') em uma string vazia (''). Em seguida, um bug no sistema interpretava essa string vazia como uma senha válida, permitindo o acesso indevido à conta.
 
 <br />
 
@@ -71,8 +71,7 @@ As senhas devem ser armazenadas usando hash e salt. O hash é uma função de cr
 
 **Explicação:** Essa vulnerabilidade ocorre quando o usuário consegue infiltrar comando em algum campo e enviar para servidor. Podendo realizar ataques de XSS, injeção de SQL ou NoSQL e etc.
 
-**Caso grande:** Em 2025, uma vulnerabilidade no plugin Paid Memberships Pro do WordPress afetou mais de 10.000 sites.
-O plugin é utilizado para gerenciar assinaturas e pagamentos recorrentes. O erro ocorria durante o processamento inadequado das notificações de pagamento do PayPal, o plugin inseria dados fornecidos pelo usuário em consultas SQL sem a devida validação, possibilitando SQL Injection.
+**Caso grande:** Em 2025, uma vulnerabilidade no plugin WordPress Paid Membership Subscriptions do WordPress afetou mais de 10.000 sites. O plugin é utilizado para gerenciar assinaturas e pagamentos recorrentes. O erro ocorria durante o processamento inadequado das notificações de pagamento do PayPal, o plugin inseria dados fornecidos pelo usuário em consultas SQL sem a devida validação, possibilitando SQL Injection.
 
 <br />
 
