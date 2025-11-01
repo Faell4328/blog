@@ -3,6 +3,7 @@ title: 'OWASP Top 10: o guia essencial para desenvolvedores'
 description: '/imagens/owasp.png'
 pubDate: '10/30/2025'
 goal: 'Introduzir os conceitos base sobre cibersegurança em desenvolvimento'
+category: 'teste'
 ---
 
 ## O que é a OWASP?
@@ -82,7 +83,7 @@ O plugin é utilizado para gerenciar assinaturas e pagamentos recorrentes. O err
 <br/>- Configuração inadequada de servidores, APIs ou serviços HTTP, que podem permitir acesso não autorizado ou ataques.
 <br/>- Solicitação excessiva de informações do usuário sem necessidade, aumentando risco de vazamento de dados.
 <br/>- Falta de tratamento e prevenção de falhas em condições inesperadas, como discos cheios, ausência de backup ou interrupções na rede.
-<br/>- Ausência de limites para tentativas de login, aumentando a vulnerabilidade a ataques de força bruta..
+<br/>- Ausência de limites para tentativas de login, aumentando a vulnerabilidade a ataques de força bruta.
 
 Um exemplo recente (referente à data em que escrevo) envolve uma cama inteligente (BedaaS kkk) que podia ser configurada via aplicativo, permitindo ajustar o nível de inclinação, a temperatura, entre outros parâmetros. O aplicativo enviava informações para a AWS, que então repassava os comandos para a cama. No dia 20/10/2025, a AWS sofreu uma queda, tornando impossível configurar a cama. Na internet, pessoas reclamaram que a cama parecia uma sauna ou que acabaram dormindo quase sentadas. Esse exemplo ilustra de forma clara um design com dependência excessiva de um único serviço externo (ou seja, design inseguro), mesmo sem que houvesse qualquer ataque ou vulnerabilidade explorada.
 
@@ -103,9 +104,33 @@ Também pode acontecer de o próprio software ou biblioteca ter sido intencional
 
 ### 7) Falhas de identificação e autenticação
 
-**Explicação:** Essa vulnerabilidade ocorre quando o sistema não verifica corretamente a identidade do usuário ou os seus privilégios. Como resultado, um usuário pode acessar, modificar, atualizar ou deletar informações ou configurações do sistema sem autorização adequada.
+**Explicação:** Essa vulnerabilidade ocorre quando o sistema não verifica corretamente a identidade do usuário ou não aplica controles de autenticação e autorização adequados. Como resultado, um invasor pode acessar, modificar, atualizar ou excluir informações e configurações do sistema sem permissão, comprometendo a segurança e a privacidade dos dados.
 
-**Caso grande:** Em 2024, a empresa Snowflake
+**Caso grande:** Em 2025, o aplicativo Tea (um app para Android e iOS voltado exclusivamente para mulheres, com foco em segurança durante encontros) sofreu um grave vazamento de dados. Cerca de 72 mil imagens (incluindo selfies e documentos de identidade) e 1,1 milhão de mensagens privadas foram expostas publicamente. 
+
+A causa principal foi uma configuração incorreta no Firebase, onde os dados eram armazenados sem autenticação ou controle de acesso adequados. Além disso, a chave de API e o token de acesso estavam embutidos diretamente no código do aplicativo, permitindo que qualquer pessoa com acesso ao app pudesse conectar-se aos servidores e extrair informações sensíveis.
+
+### 8) Falhas de integridade de dados e software
+
+**Explicação:** Essa vulnerabilidade ocorre quando se confia cegamente em fontes externas, por exemplo, não fazendo a verificação do SHA256.
+
+Essa vulnerabilidade ocorre quando sistemas confiam cegamente em fontes externas sem realizar verificações adequadas de integridade, como validação de hash (ex.: SHA256). Sem essas verificações, é possível que softwares ou dados sejam alterados por agentes maliciosos antes de serem utilizados pelo sistema.
+
+**Caso grande:** Em 2023, a empresa 3CX sofreu um ataque ao 3CX Desktop App, um software de telefonia empresarial baseado em IP (VoIP), que afetou mais de 600.000 organizações. O incidente ocorreu por meio de um ataque à cadeia de suprimentos (supply chain): os invasores injetaram malware tanto no instalador quanto nas DLLs do software.
+
+### 9) Falhas em monitoramento e registro de segurança
+
+**Explicação:** Neste caso, não estamos falando de falhas ou vulnerabilidades diretamente, e sim de problemas no monitoramento e no registro das informações do sistema. Embora isso não impeça que uma vulnerabilidade seja explorada, um bom monitoramento permite identificar como o ataque ocorreu e onde será necessário corrigir.
+
+**Caso grande:** Em 2016, a rede de hotéis Marriott adquiriu sua concorrente Starwood. Em 2018, a Marriott revelou um vazamento de dados que comprometeu até 500 milhões de registros de hóspedes da antiga base da Starwood.
+Desses, aproximadamente 327 milhões continham informações pessoais completas, como nome, endereço, telefone, e-mail, número de passaporte e data de nascimento, enquanto alguns registros também incluíam dados de pagamento, como número do cartão e data de validade. A investigação apontou que a invasão aos sistemas da Starwood começou em 2014, dois anos antes da aquisição pela Marriott, e só foi descoberta em 2018.
+
+### 10) Falsificação de solicitação do lado do servidor (SSRF)
+
+
+**Explicação:** Essa vulnerabilidade ocorre quando um atacante consegue induzir o servidor vulnerável a realizar requisições HTTP (ou de outro tipo) para um endereço arbitrário. Em vez de o cliente fazer a requisição, é o próprio servidor que faz, seguindo a instrução manipulada pelo atacante. Isso permite que o invasor: Acesse serviços internos que normalmente não são expostos à internet (ex: localhost), faça download de arquivos maliciosos, realize scans internoso e até vaze arquivos sensíveis.
+
+**Cago grande:** Em 2019, o banco Capital One sofreu um vazamento de dados que expôs informações de mais de 100 milhões de clientes, incluindo dados de contas e pedidos de cartões de crédito. A falha explorada envolveu um WAF mal configurado na infraestrutura AWS, permitindo a execução de um ataque SSRF que resultou no acesso a buckets do Amazon S3.
 
 ## Reflexão
 
@@ -114,6 +139,8 @@ O computador basicamente recebe dados, processa esses dados e retorna o resultad
 Por exemplo, um SQL Injection pode ser evitado se a entrada de dados for devidamente validada e tratada antes de ser enviada ao banco de dados. Em resumo, todo processo de software deve ser analisado considerando onde e como ele pode ser explorado.
 
 Além disso, evite criar suas próprias soluções de segurança. Técnicas e bibliotecas já existentes são amplamente testadas e consolidadas, o que reduz significativamente a chance de falhas. Isso é especialmente importante em criptografia: só porque algo está "embaralhado" não significa que é seguro. Por trás da criptografia há muita matemática e inúmeros testes realizados por especialistas (além do próprio desenvolvedor), e essas soluções normalmente passam por um longo período de análise antes de serem utilizadas em produção.
+
+**Importante:** Você deve analisar e escolher quais vulnerabilidades do OWASP Top 10 vale a pena proteger no seu projeto e como implementar essas proteções. Se seu software lida com muitos dados pessoais e isso representa o principal risco, o foco deve ser na segurança desses dados. Se for apenas um projeto pessoal, criado para prática, não é necessário implementar nenhuma medida do OWASP Top 10.
 
 <br /><hr />
 
@@ -125,3 +152,8 @@ Além disso, evite criar suas próprias soluções de segurança. Técnicas e bi
 - https://g1.globo.com/tecnologia/noticia/2025/10/23/pane-global-na-nuvem-da-amazon-fez-camas-inteligentes-travarem-durante-a-madrugada.ghtml
 - https://www.cybersaint.io/blog/uber-hack-undisclosed
 - https://www.breachsense.com/blog/equifax-data-breach/
+- https://www.appknox.com/blog/tea-app-data-breach-security-flaws-analysis-appknox
+- https://www.tenable.com/blog/3cx-desktop-app-for-windows-and-macos-reportedly-compromised-in-supply-chain-attack
+- https://www.bbc.com/news/technology-46401890
+
+- https://root-vaibhav.medium.com/the-2019-capital-one-breach-how-ignored-warnings-and-cloud-misconfigurations-opened-the-door-to-1f57fbea527f
