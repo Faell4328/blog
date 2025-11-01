@@ -88,7 +88,16 @@ p {
 	margin-bottom: 1em;
 }
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: 1em;
+}
+li p{
+	margin: 0.2em !important;
+}
+ul{
+	padding-inline-start: 20px !important;
+}
+ol{
+	padding-inline-start: 40px !important;
 }
 textarea {
 	width: 100%;
