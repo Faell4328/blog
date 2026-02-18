@@ -1,7 +1,7 @@
 ---
 title: 'OWASP Top 10: o guia essencial de cibersegurança para desenvolvedores'
 description: '/imagens/1 - index.png'
-pubDate: '11/01/2025'
+pubDate: '11/1/2025'
 goal: 'Introduzir os conceitos base sobre cibersegurança em desenvolvimento'
 id: 1
 ---
