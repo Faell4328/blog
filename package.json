@@ -7,15 +7,14 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-
     "draft": "node draft.js",
     "publish": "node publish.js"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.8",
+    "@astrojs/mdx": "^8.1.2",
     "@astrojs/rss": "^4.0.13",
     "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.15.1",
-    "sharp": "^0.34.3"
+    "astro": "^7.4.4",
+    "sharp": "^0.35.5"
   }
 }
